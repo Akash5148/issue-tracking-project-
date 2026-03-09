@@ -142,6 +142,22 @@ const loadSingleIssue = (id) => {
 };
 
 const showModal = (issue) => {
+
+const labelsHTML = issue.labels.map(label =>
+`<button class="px-2 py-1 text-xs rounded-lg mr-1 mb-1 capitalize border border-gray-300
+${label === 'bug' ? 'text-red-500 bg-[#FEECEC] border-red-500'
+: label === 'enhancement' ? 'text-green-500 bg-[#ECFDF5] border-green-500'
+: label === 'documentation' || label === 'help wanted'
+? 'text-[#F59E0B] bg-[#FFF6D1] border-[#F59E0B]'
+: 'text-gray-700 bg-gray-200'}">
+${label}
+</button>`
+).join('');
+
+
+
+
+
     const modalContent = document.getElementById("modal-content");
     modalContent.innerHTML = `
         
@@ -158,7 +174,9 @@ const showModal = (issue) => {
            
             <li> ${issue.createdAt}</li>
         </ul></div>
-
+<div class="flex gap-2 flex-wrap my-3">
+${labelsHTML}
+</div>
         
   <p class="my-5 text-[13px]">${issue.description}</p>
 
@@ -171,7 +189,7 @@ const showModal = (issue) => {
    </div>
    <div class="">
    <p> Priority</p>
-   <p class="font-bold bg-red-500 rounded-md border border-red-500 text-center text-white px-3 py-2 capitalize" >  ${issue.priority}</p>
+   <p class="font-bold bg-red-500 rounded-md border border-red-500 text-center text-white px-3 py-1 capitalize" >  ${issue.priority}</p>
    </div>
    </div>
         
