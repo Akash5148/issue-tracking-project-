@@ -77,7 +77,10 @@ const displayIssue = (issues) => {
 
  <div class="flex  my-2 justify-between mx-auto ">
         ${labelsHTML}
+
+
     </div>
+    <span class=" text-gray-300 m-0  my-4 " > <hr> </span>
 
             <div class="flex flex-col text-left text-[#64748B] items-start mt-4">
 
@@ -88,11 +91,13 @@ const displayIssue = (issues) => {
                 </div>
               
 
-                <button class="btn btn-xs btn-primary">Details</button>
+                
            
         `;
 
         // Add click listener for Details button
+
+        card.addEventListener("click", () => loadSingleIssue(issue.id));
         const btn = card.querySelector("button");
         btn.addEventListener("click", () => loadSingleIssue(issue.id));
 
@@ -139,13 +144,37 @@ const loadSingleIssue = (id) => {
 const showModal = (issue) => {
     const modalContent = document.getElementById("modal-content");
     modalContent.innerHTML = `
-        <h2 class="text-xl font-bold mb-2">${issue.title}</h2>
-        <p class="mb-3">${issue.description}</p>
-        <p><b>Status:</b> ${issue.status}</p>
-        <p><b>Author:</b> ${issue.author}</p>
-        <p><b>Priority:</b> ${issue.priority}</p>
-        <p><b>Label:</b> ${issue.label}</p>
-        <p><b>Created:</b> ${issue.createdAt}</p>
+        
+
+    <h2 class="text-xl font-bold mb-4">${issue.title}</h2>
+
+        
+
+
+<div class=" flex  items-start justify-start"><ul class="flex flex-wrap gap-4 text-sm text-gray-700">
+            <li class="    bg-green-500 px-4 py-1 text-white text-center rounded-md"> ${issue.status}</li>
+            <li>${issue.author}</li>
+           
+           
+            <li> ${issue.createdAt}</li>
+        </ul></div>
+
+        
+  <p class="my-5 text-[13px]">${issue.description}</p>
+
+
+   <div class=" flex justify-start items-center gap-25 capitalize">
+   <div class="">
+   <p> Assignee</p>
+   <p class="font-bold"> ${issue.author}</p>
+   
+   </div>
+   <div class="">
+   <p> Priority</p>
+   <p class="font-bold bg-red-500 rounded-md border border-red-500 text-center text-white px-3 py-2 capitalize" >  ${issue.priority}</p>
+   </div>
+   </div>
+        
     `;
     document.getElementById("issue_modal").showModal();
 };
