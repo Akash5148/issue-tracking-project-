@@ -55,7 +55,7 @@ const displayIssue = (issues) => {
         card.innerHTML = `
 <div class="flex items-center justify-between gap-2 mb-2">
     <img src="${(issue.priority === 'high' || issue.priority === 'medium')
-                ? './assets/open-status.png'
+                ? './assets/Open-Status.png"'
                 : './assets/Closed- Status .png'
             }" class="w-8 h-8" />
 
@@ -95,7 +95,6 @@ const displayIssue = (issues) => {
            
         `;
 
-        // Add click listener for Details button
 
         card.addEventListener("click", () => loadSingleIssue(issue.id));
         const btn = card.querySelector("button");
@@ -143,20 +142,19 @@ const loadSingleIssue = (id) => {
 
 const showModal = (issue) => {
 
-const labelsHTML = issue.labels.map(label =>
-`<button class="px-2 py-1 text-xs rounded-lg mr-1 mb-1 capitalize border border-gray-300
-${label === 'bug' ? 'text-red-500 bg-[#FEECEC] border-red-500'
-: label === 'enhancement' ? 'text-green-500 bg-[#ECFDF5] border-green-500'
-: label === 'documentation' || label === 'help wanted'
-? 'text-[#F59E0B] bg-[#FFF6D1] border-[#F59E0B]'
-: 'text-gray-700 bg-gray-200'}">
-${label}
-</button>`
-).join('');
 
 
+ const labelsHTML = issue.labels.map(label =>
+            `<button class="px-1 py-1 text-[10px] rounded-lg mr-1 mb-1 capitalize  border border-gray-300 ${label === 'bug' ? 'text-red-500 bg-[#FEECEC] px-5 py-2 border border-red-500'
+                : label === 'enhancement' ? 'text-green-500 bg-[#ECFDF5] py-2 border border-green-500'
+                    : label === 'documentation' || label === 'help wanted' ? 'text-[#F59E0B] bg-[#FFF6D1]  py-2 border border-[#F59E0B-500'
+                        : 'text-gray-700 bg-gray-200'}">
+        ${label}
+    </button>`
+        ).join('');
 
 
+//modal part 
 
     const modalContent = document.getElementById("modal-content");
     modalContent.innerHTML = `
