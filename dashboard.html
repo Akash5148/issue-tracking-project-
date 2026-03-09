@@ -89,9 +89,8 @@
 
 
     <!-- main page part -->
-    <section class="border border-red-600  md:px-[245px] md:py-[60px] ">
-        <div
-            class="flex flex-col    md:flex-row  justify-start  items-center p-6 shadow-md rounded-sm gap-3">
+    <section class=" md:px-[245px] md:py-[60px] ">
+        <div class="flex flex-col    md:flex-row  justify-start  items-center p-6 shadow-md rounded-sm gap-3 mb-[18px]">
             <div class=" w-full md:w-auto "><button
                     class="w-full md:w-auto border border-gray-200 px-6 py-2  rounded-sm text-white shadow-sm  bg-[#4A00FF] nav-btn">
                     All</button></div>
@@ -105,9 +104,67 @@
 
         </div>
 
+        <!-- issue part  -->
+
+        <div class="flex justify-between items-center p-6 shadow-md rounded-sm gap-3 ">
+
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center p-6 shadow-md rounded-sm w-full bg-white gap-6 md:gap-0">
+
+                <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                    <div class="flex-shrink-0">
+                        <img src="./assets/Aperture.png" alt="Aperture Icon" class="w-10 h-10">
+                    </div>
+                    <div>
+                        <h2 id="issue-count" class="text-[20px] font-semibold  text-gray-800">0 Issues</h2>
+                        <p class="text-gray-500 text-sm">Track and manage your project issues</p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex items-center gap-4 md:gap-6 md:pt-4 md:pt-0 w-full md:w-auto justify-center md:justify-end">
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <h3 class="text-gray-700 font-medium capitalize text-sm md:text-base">open</h3>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                        <h3 class="text-gray-700 font-medium capitalize text-sm md:text-base">closed</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- jjjj -->
+
+
+
+
+
+            
+
+
+
+            </div>
+            <div id="issue-container1" class="issue-container"></div>
+
+
+
+
 
 
     </section>
+
+
+
+
+
+
+
+
+
 
     <script src="main.js"></script>
 
